@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
+import { ShimmerButton } from "./ui/shimmer-button"
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -301,7 +303,7 @@ export function Navigation() {
 
           {/* Desktop CTAs */}
           <div className="hidden md:flex items-center space-x-4">
-            <motion.button 
+            {/* <motion.button 
               className="
                 relative h-10 px-5 py-2.5 text-sm font-semibold 
                 rounded-xl backdrop-blur-sm bg-white/[0.05] 
@@ -313,15 +315,23 @@ export function Navigation() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span className="relative z-10">Join Us Today</span>
+              <Link href='#join-us' >
+                
+              </Link>
               <motion.div
                 className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/10 to-transparent opacity-0"
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               />
-            </motion.button>
-            
+            </motion.button> */}
+             <Link href='#join-us' >
+             <ShimmerButton>
+                  Join Us Today
+                {/* <span className="relative z-10">Join Us Today</span> */}
+                </ShimmerButton>
+             </Link>
+
             {/* <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
@@ -467,7 +477,9 @@ export function Navigation() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
+                    <Link href='#join-us' >
                     <span className="relative z-10">Join Us Today</span>
+                    </Link>
                     <motion.div
                       className="absolute left-0 top-0 h-full w-0.5 rounded-full bg-gradient-to-b from-white/30 to-transparent opacity-0"
                       initial={{ width: 0 }}

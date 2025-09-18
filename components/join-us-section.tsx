@@ -18,6 +18,7 @@ export function JoinUsSection() {
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [emailSubmitted, setEmailSubmitted] = useState(false);
+   const [agreement, setAgreement] = useState(false);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -25,58 +26,47 @@ export function JoinUsSection() {
     organization: "",
     joinType: "",
     message: "",
-    agreement: false,
-  })
+  });
 
+   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    setLoading(true);
 
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-
-    const JSONdata = JSON.stringify(data);
-   
-    const endpoint = "/api/send";
-
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSONdata,
-    };
-
-    setLoading(true)
-    
     try {
-      const response = await fetch(endpoint, options);
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
       const resData = await response.json();
-     
 
       if (response.ok) {
         setEmailSubmitted(true);
-        toast("Your message has been sent.")
+        toast("✅ Your message has been sent.");
+        setFormData({
+          fullName: "",
+          email: "",
+          organization: "",
+          joinType: "",
+          message: "",
+        });
       } else {
-        toast("Uh oh! Something went wrong. There was a problem while sending your message.", {
-          action: {
-            label: "Try again",
-            onClick: () => setError(null),
-          },
-        })
-        setError(resData.message || "Something went wrong. Please try again.");
+        toast("❌ Something went wrong. Try again.");
+        setError(resData.message || "Failed to send message.");
       }
-    } catch (error) {
+    } catch (err) {
       setError("Network error. Please check your connection.");
-    }
-    finally{
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   };
+
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -178,7 +168,7 @@ export function JoinUsSection() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="joinType" className="text-white">
-                      How would you like to join? <span className="text-red-400">*</span>
+                     How do you want to contribute? <span className="text-red-400">*</span>
                     </Label>
                     <Select
                       value={formData.joinType}
@@ -187,13 +177,12 @@ export function JoinUsSection() {
                       <SelectTrigger className="bg-slate-700/50 border-white/20 text-white">
                         <SelectValue placeholder="Select an option..." />
                       </SelectTrigger>
-                      <SelectContent className="bg-slate-800 border-white/20">
-                        <SelectItem value="researcher">Contribute Research</SelectItem>
-                        <SelectItem value="compute">Donate Compute</SelectItem>
-                        <SelectItem value="volunteer">Volunteer</SelectItem>
-                        <SelectItem value="partner">Partnership</SelectItem>
-                        <SelectItem value="developer">Developer</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
+                      <SelectContent className="bg-slate-300 border-white/20">
+                        <SelectItem value="Research">Research</SelectItem>
+                        <SelectItem value="Policy / Governance">Policy / Governance</SelectItem>
+                        <SelectItem value="Partnership">Partnership</SelectItem>
+                        <SelectItem value="Funding / Partnerships">Funding / Partnerships</SelectItem>
+                        <SelectItem value="Engineering">Engineering</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -229,8 +218,8 @@ export function JoinUsSection() {
                 <div className="flex items-start space-x-3">
                   <Checkbox
                     id="agreement"
-                    checked={formData.agreement}
-                    onCheckedChange={(checked) => setFormData({ ...formData, agreement: checked as boolean })}
+                    checked={agreement}
+                    onCheckedChange={(checked) => setAgreement(checked as boolean)}
                     className="mt-1 border-white/20"
                   />
                   <Label htmlFor="agreement" className="text-sm text-white/60 leading-relaxed">
@@ -243,7 +232,7 @@ export function JoinUsSection() {
                     type="submit"
                     size="lg"
                     className="bg-green-500 hover:bg-green-600 text-black flex-1 group"
-                    disabled={!formData.agreement}
+                    disabled={!agreement}
                   >
                     <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
                     Submit
