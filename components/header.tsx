@@ -9,11 +9,10 @@ import Link from "next/link"
 import { ShimmerButton } from "./ui/shimmer-button"
 
 const navItems = [
-  { name: "About", href: "#about" },
+  { name: "Home", href: "#home" },
   { name: "Mission", href: "#mission" },
   { name: "Team", href: "#team" },
   { name: "Roadmap", href: "#roadmap" },
-  { name: "Vision", href: "#vision" },
   { name: "Resources", href: "#resources" },
   { name: "Press", href: "#press" },
 ]
@@ -101,83 +100,70 @@ export function Navigation() {
   {/* Logo Container */}
   <motion.div 
     className="relative"
-    initial={{ scale: 0, rotate: -180 }}
-    animate={{ scale: 1, rotate: 0 }}
-    transition={{ 
-      duration: 0.6, 
-      ease: [0.23, 0.86, 0.39, 0.96],
-      scale: { duration: 0.4 },
-      rotate: { duration: 0.8 }
-    }}
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.95 }}
   >
     {/* Main Logo Container */}
-    <div 
+   <div 
+  className={`  `}
+>
+  {/* Logo Image */}
+  <motion.div
+    className="relative z-10"
+  >
+    <Image
+      src="/logo.png"
+      alt="Petresia Logo"
+      width={65}
+      height={50}
       className={`
-        relative w-10 h-10 rounded-xl flex items-center justify-center
-        backdrop-blur-xl bg-gradient-to-br from-white/5 via-transparent to-black/5
-        border-2 border-white/[0.2] 
-        shadow-[0_8px_32px_rgba(255,255,255,0.08)]
-        overflow-hidden
-        after:absolute after:inset-0 after:rounded-xl 
-        after:bg-[radial-gradient(circle_at_30%_30%,rgba(99,102,241,0.2),transparent_50%)]
-        after:opacity-0 after:group-hover:opacity-100 after:transition-all after:duration-500
+        w-full h-full object-contain
       `}
-    >
-      {/* Logo Image */}
-      <motion.div
-        className="relative z-10 "
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-      >
-        <Image
-          src="/logo.svg"
-          alt="Petresia Logo"
-          width={58}
-          height={58}
-          className="
-         z-30"
-          priority
-        />
-      </motion.div>
+      priority
+    />
+  </motion.div>
 
-      {/* Floating Particles */}
-      <motion.div
-        className="absolute top-1 right-1 w-2 h-2 bg-gradient-to-br from-indigo-400/60 to-rose-400/60 rounded-full opacity-0"
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ 
-          opacity: [0, 0.7, 0], 
-          scale: [0, 1, 0],
-          x: [0, 2, 0],
-          y: [0, -2, 0]
-        }}
-        transition={{ 
-          duration: 2, 
-          repeat: Infinity, 
-          delay: 1.5,
-          ease: "easeInOut"
-        }}
-      />
-      
-      <motion.div
-        className="absolute bottom-1 left-1 w-1.5 h-1.5 bg-gradient-to-br from-rose-400/60 to-cyan-400/60 rounded-full opacity-0"
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ 
-          opacity: [0, 0.6, 0], 
-          scale: [0, 1, 0],
-          x: [0, -1, 0],
-          y: [0, 1, 0]
-        }}
-        transition={{ 
-          duration: 2.5, 
-          repeat: Infinity, 
-          delay: 2,
-          ease: "easeInOut"
-        }}
-      />
-    </div>
+  {/* Enhanced Floating Particles */}
+  <motion.div
+    className="absolute top-1 right-1 w-2.5 h-2.5 bg-gradient-to-br from-indigo-400/70 to-rose-400/70 rounded-full opacity-0 blur-[0.5px]"
+    initial={{ opacity: 0, scale: 0 }}
+    animate={{ 
+      opacity: [0, 0.8, 0], 
+      scale: [0, 1.2, 0],
+      x: [0, 3, 0],
+      y: [0, -3, 0]
+    }}
+    transition={{ 
+      duration: 2, 
+      repeat: Infinity, 
+      delay: 1.5,
+      ease: "easeInOut"
+    }}
+  />
+  
+  <motion.div
+    className="absolute bottom-1 left-1 w-2 h-2 bg-gradient-to-br from-rose-400/70 to-cyan-400/70 rounded-full opacity-0 blur-[0.5px]"
+    initial={{ opacity: 0, scale: 0 }}
+    animate={{ 
+      opacity: [0, 0.7, 0], 
+      scale: [0, 1.1, 0],
+      x: [0, -2, 0],
+      y: [0, 2, 0]
+    }}
+    transition={{ 
+      duration: 2.5, 
+      repeat: Infinity, 
+      delay: 2,
+      ease: "easeInOut"
+    }}
+  />
+
+  {/* Additional subtle glow effect */}
+  <motion.div
+    className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-2xl opacity-0"
+    initial={{ opacity: 0 }}
+    whileHover={{ opacity: 1 }}
+    transition={{ duration: 0.3 }}
+  />
+</div>
 
     {/* Outer Glow Ring */}
     <motion.div
@@ -194,7 +180,7 @@ export function Navigation() {
     />
 
     {/* Pulsing Ring */}
-    <motion.div
+    {/* <motion.div
       className="
         absolute inset-0 rounded-xl border-2 border-transparent
         bg-gradient-to-r from-indigo-400/30 to-rose-400/30
@@ -208,26 +194,16 @@ export function Navigation() {
         duration: 3, 
         repeat: Infinity, 
         ease: "easeInOut"
-      }}
-    />
+      }} */}
+    
 
     {/* Shine Effect */}
-    <motion.div
-      className="
-        absolute inset-0 rounded-xl
-        bg-gradient-to-r from-transparent via-white/20 to-transparent
-        opacity-0
-        -skew-x-12
-      "
-      initial={{ x: "-100%" }}
-      animate={{ x: "100%" }}
-      transition={{ 
-        duration: 2, 
-        repeat: Infinity, 
-        repeatDelay: 3,
-        ease: "linear"
-      }}
-    />
+    {/* <motion.div
+      className="absolute inset-0 rounded-xl bg-gradient-to-r from-indigo-500/30 to-rose-500/30 opacity-0"
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    /> */}
   </motion.div>
 
   {/* Text */}

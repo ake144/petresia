@@ -1,3 +1,4 @@
+import { BottomText } from "@/components/bottom";
 import HeroGeometric from "@/components/hero-section";
 import { JoinUsSection } from "@/components/join-us-section";
 import { PressSection } from "@/components/pres-section";
@@ -17,6 +18,7 @@ export default function Home() {
       <ResourcesSection  />
       <PressSection  />
       <JoinUsSection  />
+      <BottomText  />
     </div>
   );
 }
