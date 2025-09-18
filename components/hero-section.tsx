@@ -6,6 +6,10 @@ import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import Link from "next/link"
+import { PulsatingButton } from "./ui/pulsating-button"
+import { ShimmerButton } from "./ui/shimmer-button"
+import { RippleButton } from "./ui/ripple-button"
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -193,36 +197,21 @@ export default function HeroSection({
             animate="visible"
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 md:mb-12"
           >
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-indigo-500 to-rose-500 hover:from-indigo-600 hover:to-rose-600 text-white px-8 py-3 text-lg font-semibold group border-none shadow-lg"
-              onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              Read the Manifesto
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <Link href='https://www.sreglobal.org/petresia/assets/Petresia_Manifesto_v1.0_Updated.pdf'  target="_blank" rel="noopener noreferrer">
+           
+              
+              <RippleButton>Read the Manifesto</RippleButton>
+           </Link>
 
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-white/20 text-white hover:bg-white/10 hover:border-white/30 px-8 py-3 text-lg font-semibold"
-            >
-              Day One Declaration
-            </Button>
-
-            <Button
-              variant="ghost"
-              size="lg"
-              className="text-indigo-300 hover:text-white hover:bg-indigo-500/10 px-8 py-3 text-lg font-semibold"
-              onClick={() => document.getElementById("join-us")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              Join Us
-            </Button>
+         <Link href='https://www.sreglobal.org/petresia/assets/Petresia_DayOne_Declaration.pdf'  target="_blank" rel="noopener noreferrer">
+            
+              <ShimmerButton>Day One Declaration</ShimmerButton>
+          </Link>
           </motion.div>
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
+      <div className="absolute  cursor-pointer inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
     </div>
   )
 }

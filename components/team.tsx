@@ -78,52 +78,49 @@ export function Teams() {
       <div className="absolute bottom-1/2 right-10 w-20 h-20 border border-white/[0.03] rounded-full" />
 
       {/* Header Section */}{" "}
-      <motion.div
-        className="text-center mb-24 lg:mb-32"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, ease: [0.23, 0.86, 0.39, 0.96] }}
-      >
-        {" "}
-        <motion.span
-          className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-indigo-600/20 via-rose-600/20 to-indigo-600/20 border-2 border-white/[0.1] backdrop-blur-xl text-sm font-semibold uppercase tracking-wider text-indigo-300 shadow-lg shadow-black/20"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          whileHover={{
-            scale: 1.05,
-            boxShadow: "0 10px 30px -5px rgba(0, 0, 0, 0.3)",
-          }}
-        >
-          {" "}
-          <Scale className="h-4 w-4" /> Open Protocol{" "}
-        </motion.span>{" "}
-        <motion.h2
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mt-8 mb-10 tracking-tight leading-tight"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 1 }}
-        >
-          {" "}
-          <span className="bg-gradient-to-r from-white/95 via-indigo-100/90 to-rose-100/90 bg-clip-text text-transparent block">
-            {" "}
-            Our Foundation{" "}
-          </span>{" "}
-          <span className="text-white/95 block">Teams</span>{" "}
-        </motion.h2>{" "}
-        <motion.p
-          className="text-xl md:text-2xl text-white/60 max-w-5xl mx-auto leading-relaxed px-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-        >
-          {" "}
-          Petresia is an open, verifiable protocol that organizes donated
-          compute for ethical AI workloads—prioritized by the Esperanza Charter
-          and stewarded with transparency, fairness, and global access.{" "}
-        </motion.p>{" "}
-      </motion.div>
+     <motion.div
+  className="text-center mb-24 lg:mb-32"
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 1, ease: [0.23, 0.86, 0.39, 0.96] }}
+>
+  <motion.span
+    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-indigo-600/20 to-rose-600/20 border border-white/15 backdrop-blur-sm text-sm font-semibold uppercase tracking-wider text-indigo-300"
+    initial={{ scale: 0.8, opacity: 0 }}
+    animate={{ scale: 1, opacity: 1 }}
+    transition={{ delay: 0.2, duration: 0.6 }}
+    whileHover={{ scale: 1.05 }}
+  >
+    <Scale className="h-4 w-4" />
+    Open Protocol
+  </motion.span>
+
+  <motion.h2
+    className="text-5xl md:text-7xl lg:text-8xl font-bold mt-8 mb-10 tracking-tight leading-tight"
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.3, duration: 1 }}
+  >
+    <span className="bg-gradient-to-r from-white/95 via-indigo-100/90 to-rose-100/90 bg-clip-text text-transparent block">
+      Our Foundation
+    </span>
+    <span className="text-white/95 block">Teams</span>
+  </motion.h2>
+
+  <motion.p
+    className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed px-4"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.4, duration: 0.8 }}
+  >
+    Petresia is an open, verifiable protocol that organizes donated compute for
+    ethical AI workloads — prioritized by the Esperanza Charter and stewarded
+    with transparency, fairness, and global access.
+  </motion.p>
+</motion.div>
+
+
       <div className="py-3 mt-14 flex flex-col lg:flex-row items-center justify-center bg-black w-full gap-4 mx-auto px-8">
         <Card title="Protocol" name="Protocol">
           <CanvasRevealEffect

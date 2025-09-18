@@ -12,8 +12,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox"
 import { ArrowUp, Send, Users } from "lucide-react"
 import { motion } from "framer-motion"
+import { toast } from "sonner"
 
 export function JoinUsSection() {
+    const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
+    const [emailSubmitted, setEmailSubmitted] = useState(false);
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -23,11 +28,55 @@ export function JoinUsSection() {
     agreement: false,
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
-  }
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setError(null);
+
+    const data = {
+      email: e.target.email.value,
+      subject: e.target.subject.value,
+      message: e.target.message.value,
+    };
+
+    const JSONdata = JSON.stringify(data);
+   
+    const endpoint = "/api/send";
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSONdata,
+    };
+
+    setLoading(true)
+    
+    try {
+      const response = await fetch(endpoint, options);
+      const resData = await response.json();
+     
+
+      if (response.ok) {
+        setEmailSubmitted(true);
+        toast("Your message has been sent.")
+      } else {
+        toast("Uh oh! Something went wrong. There was a problem while sending your message.", {
+          action: {
+            label: "Try again",
+            onClick: () => setError(null),
+          },
+        })
+        setError(resData.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setError("Network error. Please check your connection.");
+    }
+    finally{
+      setLoading(false)
+    }
+  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -79,8 +128,7 @@ export function JoinUsSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Partner with Petresia — contribute research, donate compute, volunteer, or collaborate on deployments. We
-            review every message and welcome all forms of participation.
+            Partner with Petresia — contribute research, donate compute, volunteer, or collaborate on deployments. We review every message.
           </motion.p>
         </motion.div>
 
