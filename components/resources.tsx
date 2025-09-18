@@ -1,67 +1,54 @@
-"use client"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { FileText, Code, BookOpen, Download, ExternalLink, Archive, Quote, Copy, CheckCircle } from "lucide-react"
-import { motion } from "framer-motion"
-import { useState } from "react"
+"use client";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  FileText,
+  Code,
+  BookOpen,
+  Download,
+  ExternalLink,
+  Archive,
+  Quote,
+  Copy,
+  CheckCircle,
+  FolderOpen,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { url } from "inspector";
+import Link from "next/link";
 
 const resources = [
   {
     icon: FileText,
-    title: "The Esperanza Charter",
-    description: "Our foundational document outlining the principles and values that guide Petresia.",
+    title: "Petresia Manifesto",
+    description: "Our guiding principles and values",
     type: "Document",
-    size: "2.3 MB",
+    url: "https://www.sreglobal.org/petresia/assets/Petresia_Manifesto_v1.0_Updated.pdf",
+    // size: "2.3 MB",
     format: "PDF",
     featured: true,
   },
   {
     icon: Code,
-    title: "Protocol Specification",
-    description: "Technical documentation for the Petresia distributed compute protocol.",
+    title: "Day One Declaration",
+    description: "Immediate commitments to transparency, safety, and fairness.",
     type: "Technical",
-    size: "1.8 MB",
+    url: "https://www.sreglobal.org/petresia/assets/Petresia_DayOne_Declaration.pdf",
     format: "PDF",
     featured: false,
   },
   {
     icon: BookOpen,
-    title: "Research Papers",
-    description: "Collection of peer-reviewed research on ethical AI and distributed computing.",
+    title: "Whitepaper",
+    description: "Technical protocol and long-horizon vision.",
     type: "Research",
-    size: "15.2 MB",
+    url: "https://www.sreglobal.org/petresia/assets/Petresia_Whitepaper_v1.0_Cosmic.pdf",
     format: "ZIP",
     featured: false,
   },
-  {
-    icon: Code,
-    title: "Developer SDK",
-    description: "Software development kit for building applications on the Petresia network.",
-    type: "Code",
-    size: "45.7 MB",
-    format: "ZIP",
-    featured: true,
-  },
-  {
-    icon: FileText,
-    title: "Governance Framework",
-    description: "Detailed framework for community governance and decision-making processes.",
-    type: "Document",
-    size: "3.1 MB",
-    format: "PDF",
-    featured: false,
-  },
-  {
-    icon: BookOpen,
-    title: "Case Studies",
-    description: "Real-world applications and impact stories from Petresia implementations.",
-    type: "Research",
-    size: "8.9 MB",
-    format: "PDF",
-    featured: false,
-  },
-]
+];
 
 const citationFormats = [
   {
@@ -95,26 +82,29 @@ const citationFormats = [
   keywords     = {Decentralized AI, Verifiable Compute, Ethical AI Governance, Planetary Supercomputer, Esperanza Charter}
 }`,
   },
-]
+];
 
 export function ResourcesSection() {
-  const [copiedFormat, setCopiedFormat] = useState<string | null>(null)
+  const [copiedFormat, setCopiedFormat] = useState<string | null>(null);
 
   const copyToClipboard = async (text: string, format: string) => {
     try {
-      await navigator.clipboard.writeText(text)
-      setCopiedFormat(format)
-      setTimeout(() => setCopiedFormat(null), 2000)
+      await navigator.clipboard.writeText(text);
+      setCopiedFormat(format);
+      setTimeout(() => setCopiedFormat(null), 2000);
     } catch (err) {
-      console.error("Failed to copy text: ", err)
+      console.error("Failed to copy text: ", err);
     }
-  }
+  };
 
   return (
-    <section id="resources" className="py-24 lg:py-32 bg-black relative overflow-hidden">
+    <section
+      id="resources"
+      className="py-24 lg:py-32 bg-black relative overflow-hidden"
+    >
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)]"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)]"></div> */}
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -156,8 +146,9 @@ export function ResourcesSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Access our comprehensive collection of documents, research papers, and development tools to understand and
-            contribute to the Petresia ecosystem.
+            Access our comprehensive collection of documents, research papers,
+            and development tools to understand and contribute to the Petresia
+            ecosystem.
           </motion.p>
         </motion.div>
 
@@ -176,7 +167,9 @@ export function ResourcesSection() {
                 }`}
               >
                 {resource.featured && (
-                  <Badge className="absolute top-4 right-4 bg-amber-500 text-black">Featured</Badge>
+                  <Badge className="absolute top-4 right-4 bg-amber-500 text-black">
+                    Featured
+                  </Badge>
                 )}
 
                 <CardContent className="p-6">
@@ -184,23 +177,37 @@ export function ResourcesSection() {
                     <resource.icon className="w-8 h-8 text-amber-400" />
                   </div>
 
-                  <h3 className="text-xl font-semibold mb-3 text-white">{resource.title}</h3>
-                  <p className="text-white/60 mb-4 text-pretty leading-relaxed">{resource.description}</p>
+                  <h3 className="text-xl font-semibold mb-3 text-white">
+                    {resource.title}
+                  </h3>
+                  <p className="text-white/60 mb-4 text-pretty leading-relaxed">
+                    {resource.description}
+                  </p>
 
                   <div className="flex items-center justify-between mb-4">
-                    <Badge variant="outline" className="border-white/20 text-white/80">
+                    <Badge
+                      variant="outline"
+                      className="border-white/20 text-white/80"
+                    >
                       {resource.type}
                     </Badge>
-                    <div className="text-sm text-white/50">
-                      {resource.size} • {resource.format}
-                    </div>
                   </div>
 
                   <div className="flex space-x-2">
-                    <Button size="sm" className="flex-1 bg-amber-500 hover:bg-amber-600 text-black">
-                      <Download className="w-4 h-4 mr-2" />
-                      Download
-                    </Button>
+                    <Link
+                      href={resource.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      passHref
+                    >
+                      <Button
+                        size="sm"
+                        className="flex-1 cursor-pointer bg-amber-500 hover:bg-amber-600 text-black"
+                      >
+                        <FolderOpen className="w-4 h-4 mr-2" />
+                        Open Document
+                      </Button>
+                    </Link>
                     <Button
                       size="sm"
                       variant="outline"
@@ -254,48 +261,78 @@ export function ResourcesSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              If you reference Petresia in academic or professional work, use one of the styles below or download the
-              BibTeX.
+              If you reference Petresia in academic or professional work, use
+              one of the styles below or download the BibTeX.
             </motion.p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {citationFormats.map((format, index) => (
-              <motion.div
-                key={format.format}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-              >
-                <Card className="group hover:shadow-2xl transition-all duration-300 bg-slate-800/50 border-white/10 backdrop-blur-sm relative overflow-hidden">
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">{format.name}</Badge>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="border-white/20 text-white/80 hover:bg-white/10 bg-transparent"
-                        onClick={() => copyToClipboard(format.citation, format.format)}
-                      >
-                        {copiedFormat === format.format ? (
-                          <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
-                        ) : (
-                          <Copy className="w-4 h-4 mr-2" />
-                        )}
-                        {copiedFormat === format.format ? "Copied!" : "Copy"}
-                      </Button>
-                    </div>
+            {citationFormats.map((format, index) =>
+              index === 3 ? (
+                <motion.div
+                  key={format.format}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                >
+                  <Card className="group hover:shadow-2xl transition-all duration-300 bg-slate-800/50 border-white/10 backdrop-blur-sm relative overflow-hidden">
+                    <CardContent className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">
+                          {format.name}
+                        </Badge>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="border-white/20 text-white/80 hover:bg-white/10 bg-transparent"
+                          onClick={() =>
+                            copyToClipboard(format.citation, format.format)
+                          }
+                        >
+                          {copiedFormat === format.format ? (
+                            <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
+                          ) : (
+                            <Copy className="w-4 h-4 mr-2" />
+                          )}
+                          {copiedFormat === format.format ? "Copied!" : "Copy"}
+                        </Button>
+                      </div>
 
-                    <div className="bg-slate-900/50 rounded-lg p-4 border border-white/5">
-                      <pre className="text-sm text-white/80 whitespace-pre-wrap font-mono leading-relaxed">
-                        {format.citation}
-                      </pre>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                      <div className="bg-slate-900/50 rounded-lg p-4 border border-white/5">
+                        <pre className="text-sm text-white/80 whitespace-pre-wrap font-mono leading-relaxed">
+                          {format.citation}
+                        </pre>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key={format.format}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                >
+                  <Card className="group hover:shadow-2xl transition-all duration-300 bg-slate-800/50 border-white/10 backdrop-blur-sm relative overflow-hidden">
+                    <CardContent className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">
+                          {format.name}
+                        </Badge>
+                      </div>
+
+                      <div className=" rounded-md p-4 border-white/5">
+                        <span className="text-sm text-white/80 whitespace-pre-wrap font-mono leading-relaxed">
+                          {format.citation}
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              )
+            )}
           </div>
 
           <motion.div
@@ -305,13 +342,20 @@ export function ResourcesSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <Button className="bg-purple-500 hover:bg-purple-600 text-white">
-              <Download className="w-4 h-4 mr-2" />
-              Download BibTeX
-            </Button>
+            <a
+              href="https://www.sreglobal.org/petresia/assets/Petresia_Whitepaper_v1.0_Cosmic.bib"
+              download="Petresia_Whitepaper_v1.0_Cosmic.bib"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="cursor-pointer hover:bg-gray-600 text-white">
+                <Download className="w-4 h-4 mr-2" />
+                Download BibTeX
+              </Button>
+            </a>
           </motion.div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

@@ -8,61 +8,35 @@ import { motion } from "framer-motion"
 
 const pressItems = [
   {
-    title: "Petresia Launches Revolutionary AI Ethics Framework",
-    publication: "TechCrunch",
-    date: "2024-03-15",
+    title: "Brand Guidelines and Media Assets",
+    publication: "Media",
     excerpt:
-      "African-founded Petresia introduces groundbreaking approach to ethical AI governance with transparent, community-driven protocols.",
+      "Color, typography, and usage rules.",
+      url:"https://www.sreglobal.org/petresia/assets/Petresia_Brand_Strategy_v1.0.pdf",
+    featured: false,
     category: "Launch",
-    featured: true,
     type: "hero", // Added card type for different layouts
   },
   {
-    title: "The Future of Democratic AI: A Conversation with Petresia",
-    publication: "MIT Technology Review",
-    date: "2024-02-28",
-    excerpt: "How distributed computing and ethical frameworks are reshaping the AI landscape for global benefit.",
+    title: "Press Kit (ZIP)",
+    publication: "Bundle with logo and guidelines.",
+    url:"https://www.sreglobal.org/petresia/assets/press-kit.zip",
+    excerpt: "",
     category: "Interview",
     featured: true,
     type: "spotlight", // Added spotlight card type
   },
   {
-    title: "African AI Initiative Gains Global Recognition",
+    title: "Logos",
     publication: "Wired",
-    date: "2024-02-10",
+    url:"https://www.sreglobal.org/petresia/assets/logo.png",
     excerpt:
-      "Petresia's innovative approach to AI governance attracts attention from researchers and policymakers worldwide.",
+      "Download the logo as PNG.",
     category: "Feature",
     featured: false,
     type: "standard", // Added standard card type
   },
-  {
-    title: "Building Ethical AI: Lessons from the Global South",
-    publication: "Nature AI",
-    date: "2024-01-22",
-    excerpt: "Research paper highlighting Petresia's contributions to ethical AI development and global accessibility.",
-    category: "Research",
-    featured: false,
-    type: "compact", // Added compact card type
-  },
-  {
-    title: "Petresia Receives $10M in Funding for AI Ethics Research",
-    publication: "VentureBeat",
-    date: "2024-01-08",
-    excerpt: "Major funding round will accelerate development of transparent AI governance protocols.",
-    category: "Funding",
-    featured: false,
-    type: "compact",
-  },
-  {
-    title: "The Esperanza Charter: A New Model for AI Governance",
-    publication: "IEEE Spectrum",
-    date: "2023-12-15",
-    excerpt: "Detailed analysis of Petresia's foundational document and its implications for the AI industry.",
-    category: "Analysis",
-    featured: false,
-    type: "standard",
-  },
+  
 ]
 
 export function PressSection() {
@@ -139,11 +113,11 @@ export function PressSection() {
                   <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-400/30">
                     <IconComponent className="w-5 h-5 text-purple-300" />
                   </div>
-                  <Badge
+                  {/* <Badge
                     className={`${getCategoryColor(item.category)} bg-opacity-30 border-opacity-50 text-sm px-3 py-1`}
                   >
                     {item.category}
-                  </Badge>
+                  </Badge> */}
                 </div>
                 <Badge variant="outline" className="border-amber-400/50 text-amber-300 bg-amber-500/10">
                   Featured
@@ -154,19 +128,21 @@ export function PressSection() {
                 {item.title}
               </h3>
 
-              <div className="flex items-center space-x-6 mb-4 text-sm">
+              {/* <div className="flex items-center space-x-6 mb-4 text-sm">
                 <span className="font-semibold text-white/80 text-base">{item.publication}</span>
                 <div className="flex items-center space-x-2 text-white/60">
                   <Calendar className="w-4 h-4" />
                   <span>{formatDate(item.date)}</span>
                 </div>
-              </div>
+              </div> */}
 
               <p className="text-white/70 mb-6 text-lg leading-relaxed">{item.excerpt}</p>
 
               <div className="flex items-center text-purple-400 group-hover:text-purple-300 transition-colors">
-                <span className="font-medium mr-3">Read full article</span>
-                <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <a href={item.url} download={item.url} target="_blank" rel="noopener noreferrer">
+                  <span className="font-medium mr-3">Download {item.title}</span>
+                  <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
               </div>
             </CardContent>
           </Card>
@@ -190,9 +166,9 @@ export function PressSection() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <IconComponent className="w-4 h-4 text-blue-400" />
-                    <Badge className={`${getCategoryColor(item.category)} bg-opacity-20 border-opacity-30`}>
+                    {/* <Badge className={`${getCategoryColor(item.category)} bg-opacity-20 border-opacity-30`}>
                       {item.category}
-                    </Badge>
+                    </Badge> */}
                   </div>
                   <Badge variant="outline" className="border-blue-400/30 text-blue-300">
                     Spotlight
@@ -203,19 +179,21 @@ export function PressSection() {
                   {item.title}
                 </h3>
 
-                <div className="flex items-center space-x-4 mb-3 text-sm text-white/60">
+                {/* <div className="flex items-center space-x-4 mb-3 text-sm text-white/60">
                   <span className="font-medium text-white/80">{item.publication}</span>
                   <div className="flex items-center space-x-1">
                     <Calendar className="w-4 h-4" />
                     <span>{formatDate(item.date)}</span>
                   </div>
-                </div>
+                </div> */}
 
                 <p className="text-white/70 mb-4 leading-relaxed">{item.excerpt}</p>
 
                 <div className="flex items-center text-blue-400 group-hover:text-blue-300 transition-colors">
-                  <span className="text-sm font-medium mr-2">Read interview</span>
+                 <a href={item.url}  download={item.url} target="_blank" rel="noopener noreferrer">
+                  <span className="text-sm font-medium mr-2">Download {item.title}</span>
                   <ExternalLink className="w-4 h-4" />
+                </a>
                 </div>
               </div>
 
@@ -241,22 +219,22 @@ export function PressSection() {
         >
           <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-slate-800/40 border-white/10 backdrop-blur-sm cursor-pointer h-full">
             <CardContent className="p-5">
-              <div className="flex items-center justify-between mb-3">
+              {/* <div className="flex items-center justify-between mb-3">
                 <Badge className={`${getCategoryColor(item.category)} bg-opacity-20 border-opacity-30 text-xs`}>
                   {item.category}
                 </Badge>
                 <IconComponent className="w-4 h-4 text-white/40 group-hover:text-white/60 transition-colors" />
-              </div>
+              </div> */}
 
               <h3 className="font-semibold mb-2 text-white group-hover:text-purple-300 transition-colors text-lg flex-grow-0">
                 {item.title}
               </h3>
 
-              <div className="text-xs text-white/50 mb-3">
+              {/* <div className="text-xs text-white/50 mb-3">
                 <span className="font-medium text-white/70">{item.publication}</span>
                 <span className="mx-2">•</span>
                 <span>{formatDate(item.date)}</span>
-              </div>
+              </div> */}
 
               <p className="text-white/60 text-sm leading-relaxed mb-3 line-clamp-2">{item.excerpt}</p>
 
@@ -286,9 +264,9 @@ export function PressSection() {
                 <div className="p-1.5 rounded-md bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-400/20">
                   <IconComponent className="w-4 h-4 text-purple-300" />
                 </div>
-                <Badge className={`${getCategoryColor(item.category)} bg-opacity-20 border-opacity-30`}>
+                {/* <Badge className={`${getCategoryColor(item.category)} bg-opacity-20 border-opacity-30`}>
                   {item.category}
-                </Badge>
+                </Badge> */}
               </div>
             </div>
 
@@ -296,19 +274,15 @@ export function PressSection() {
               {item.title}
             </h3>
 
-            <div className="flex items-center space-x-4 mb-3 text-sm text-white/50">
-              <span className="font-medium text-white/70">{item.publication}</span>
-              <div className="flex items-center space-x-1">
-                <Calendar className="w-4 h-4" />
-                <span>{formatDate(item.date)}</span>
-              </div>
-            </div>
+
 
             <p className="text-white/60 mb-4 text-pretty leading-relaxed flex-grow">{item.excerpt}</p>
 
             <div className="flex items-center text-purple-400 group-hover:text-purple-300 transition-colors mt-auto">
-              <span className="text-sm font-medium mr-2">Read article</span>
-              <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              <a href={item.url}  download={item.url} target="_blank" rel="noopener noreferrer">
+                <span className="text-sm font-medium mr-2">Download {item.title}</span>
+                <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </a>
             </div>
           </CardContent>
         </Card>
@@ -349,9 +323,9 @@ export function PressSection() {
             transition={{ delay: 0.3, duration: 1 }}
           >
             <span className="bg-gradient-to-r from-white/95 via-purple-100/90 to-pink-100/90 bg-clip-text text-transparent block">
-              In the
+            Press
             </span>
-            <span className="text-white/95 block">Press</span>
+            <span className="text-white/95 block">Kit</span>
           </motion.h2>
 
           <motion.p
@@ -361,8 +335,7 @@ export function PressSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            See what leading publications and researchers are saying about Petresia's approach to ethical AI and
-            democratic governance.
+            Logos and brand usage for media and partners. For inquiries: info@petresia.org
           </motion.p>
         </motion.div>
 
