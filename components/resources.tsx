@@ -44,7 +44,7 @@ const resources = [
     title: "Whitepaper",
     description: "Technical protocol and long-horizon vision.",
     type: "Research",
-    url: "https://www.sreglobal.org/petresia/assets/Petresia_Whitepaper_v1.0_Cosmic.pdf",
+    url: "/Petresia_Whitepaper_v1.0.pdf",
     format: "ZIP",
     featured: false,
   },
