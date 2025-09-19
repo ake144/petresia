@@ -25,7 +25,7 @@ const resources = [
     title: "Petresia Manifesto",
     description: "Our guiding principles and values",
     type: "Document",
-    url: "https://www.sreglobal.org/petresia/assets/Petresia_Manifesto_v1.0_Updated.pdf",
+    url: "https://www.petresia.com/Petresia_Manifesto_v1.0_Updated.pdf",
     // size: "2.3 MB",
     format: "PDF",
     featured: true,
@@ -35,7 +35,7 @@ const resources = [
     title: "Day One Declaration",
     description: "Immediate commitments to transparency, safety, and fairness.",
     type: "Technical",
-    url: "https://www.sreglobal.org/petresia/assets/Petresia_DayOne_Declaration.pdf",
+    url: "https://www.petresia.com/Petresia_DayOne_Declaration.pdf",
     format: "PDF",
     featured: false,
   },
@@ -54,17 +54,17 @@ const citationFormats = [
   {
     name: "APA (7th)",
     format: "apa",
-    citation: `Petresia Council, & S.R.E Global. (2025, September). *Freeing AI from corporate monopolies: The Petresia Protocol for decentralized, verifiable, and human-centered intelligence* (Version 1.0 — Cosmic Intelligence Extension) [Whitepaper]. Petresia Council / S.R.E Global. https://www.sreglobal.org/petresia/assets/Petresia_Whitepaper_v1.0_Cosmic.pdf`,
+    citation: `Petresia Council, & S.R.E Global. (2025, September). *Freeing AI from corporate monopolies: The Petresia Protocol for decentralized, verifiable, and human-centered intelligence* (Version 1.0 — Cosmic Intelligence Extension) [Whitepaper]. Petresia Council / S.R.E Global. https://www.petresia.com/Petresia_Whitepaper_v1.0_Cosmic.pdf`,
   },
   {
     name: "MLA (9th)",
     format: "mla",
-    citation: `Petresia Council, and S.R.E Global. *Freeing AI from Corporate Monopolies: The Petresia Protocol for Decentralized, Verifiable, and Human-Centered Intelligence.* Version 1.0 — Cosmic Intelligence Extension, Sept. 2025, Petresia Council / S.R.E Global, https://www.sreglobal.org/petresia/assets/Petresia_Whitepaper_v1.0_Cosmic.pdf.`,
+    citation: `Petresia Council, and S.R.E Global. *Freeing AI from Corporate Monopolies: The Petresia Protocol for Decentralized, Verifiable, and Human-Centered Intelligence.* Version 1.0 — Cosmic Intelligence Extension, Sept. 2025, Petresia Council / S.R.E Global, https://www.petresia.com/Petresia_Whitepaper_v1.0_Cosmic.pdf.`,
   },
   {
     name: "IEEE",
     format: "ieee",
-    citation: `Petresia Council and S.R.E Global, "Freeing AI from Corporate Monopolies: The Petresia Protocol for Decentralized, Verifiable, and Human-Centered Intelligence," Whitepaper, Version 1.0 — Cosmic Intelligence Extension, Sep. 2025. [Online]. Available: https://www.sreglobal.org/petresia/assets/Petresia_Whitepaper_v1.0_Cosmic.pdf`,
+    citation: `Petresia Council and S.R.E Global, "Freeing AI from Corporate Monopolies: The Petresia Protocol for Decentralized, Verifiable, and Human-Centered Intelligence," Whitepaper, Version 1.0 — Cosmic Intelligence Extension, Sep. 2025. [Online]. Available: https://www.petresia.com/Petresia_Whitepaper_v1.0_Cosmic.pdf`,
   },
   {
     name: "BibTeX",
@@ -76,7 +76,7 @@ const citationFormats = [
   month        = sep,
   version      = {1.0},
   note         = {Cosmic Intelligence Extension},
-  url          = {https://www.sreglobal.org/petresia/assets/Petresia_Whitepaper_v1.0_Cosmic.pdf},
+  url          = {https://www.petresia.com/Petresia_Whitepaper_v1.0_Cosmic.pdf},
   urldate      = {2025-09-17},
   institution  = {Petresia Council / S.R.E Global},
   keywords     = {Decentralized AI, Verifiable Compute, Ethical AI Governance, Planetary Supercomputer, Esperanza Charter}
@@ -343,7 +343,7 @@ export function ResourcesSection() {
             transition={{ delay: 0.6, duration: 0.8 }}
           >
             <a
-              href="https://www.sreglobal.org/petresia/assets/Petresia_Whitepaper_v1.0_Cosmic.bib"
+              href="https://www.petresia.com/Petresia_Whitepaper_v1.0_Cosmic.bib"
               download="Petresia_Whitepaper_v1.0_Cosmic.bib"
               target="_blank"
               rel="noopener noreferrer"
