@@ -197,12 +197,12 @@ export default function HeroSection({
             animate="visible"
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 md:mb-12"
           >
-            <Link href='https://www.petresia.com/Petresia_Manifesto_v1.0_Updated.pdf'  target="_blank" rel="noopener noreferrer">
+            <Link href='/Petresia_Manifesto1.pdf'  target="_blank" rel="noopener noreferrer">
 
               <RippleButton>Read the Manifesto</RippleButton>
            </Link>
 
-         <Link href='https://www.petresia.com/Petresia_DayOne_Declaration.pdf'  target="_blank" rel="noopener noreferrer">
+         <Link href='/Petresia_DayOne_Declaration.pdf'  target="_blank" rel="noopener noreferrer">
             
               <ShimmerButton>Day One Declaration</ShimmerButton>
           </Link>

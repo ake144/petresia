@@ -25,7 +25,7 @@ const resources = [
     title: "Petresia Manifesto",
     description: "Our guiding principles and values",
     type: "Document",
-    url: "https://www.petresia.com/Petresia_Manifesto_v1.0_Updated.pdf",
+    url: "/Petresia_Manifesto1.pdf",
     // size: "2.3 MB",
     format: "PDF",
     featured: true,
@@ -35,7 +35,7 @@ const resources = [
     title: "Day One Declaration",
     description: "Immediate commitments to transparency, safety, and fairness.",
     type: "Technical",
-    url: "https://www.petresia.com/Petresia_DayOne_Declaration.pdf",
+    url: "/Petresia_DayOne_Declaration.pdf",
     format: "PDF",
     featured: false,
   },
@@ -54,35 +54,33 @@ const citationFormats = [
   {
     name: "APA (7th)",
     format: "apa",
-    citation: `Petresia Council, & S.R.E Global. (2025, September). *Freeing AI from corporate monopolies: The Petresia Protocol for decentralized, verifiable, and human-centered intelligence* (Version 1.0 — Cosmic Intelligence Extension) [Whitepaper]. Petresia Council / S.R.E Global. https://www.petresia.com/Petresia_Whitepaper_v1.0_Cosmic.pdf`,
+    citation: `Kefelegn, S. K., & Petresia Council / S.R.E Global. (2025). *Petresia Whitepaper v1.0 – Freeing AI from Corporate Monopolies*. S.R.E LLC – Scientific Revolution Earth. Zenodo. https://doi.org/10.5281/zenodo.17158024`,
   },
   {
     name: "MLA (9th)",
     format: "mla",
-    citation: `Petresia Council, and S.R.E Global. *Freeing AI from Corporate Monopolies: The Petresia Protocol for Decentralized, Verifiable, and Human-Centered Intelligence.* Version 1.0 — Cosmic Intelligence Extension, Sept. 2025, Petresia Council / S.R.E Global, https://www.petresia.com/Petresia_Whitepaper_v1.0_Cosmic.pdf.`,
+    citation: `Kefelegn, Samuel Kefelegn, and Petresia Council / S.R.E Global. *Petresia Whitepaper v1.0 – Freeing AI from Corporate Monopolies.* S.R.E LLC – Scientific Revolution Earth, Sept. 2025. Zenodo. https://doi.org/10.5281/zenodo.17158024.`,
   },
   {
-    name: "IEEE",
-    format: "ieee",
-    citation: `Petresia Council and S.R.E Global, "Freeing AI from Corporate Monopolies: The Petresia Protocol for Decentralized, Verifiable, and Human-Centered Intelligence," Whitepaper, Version 1.0 — Cosmic Intelligence Extension, Sep. 2025. [Online]. Available: https://www.petresia.com/Petresia_Whitepaper_v1.0_Cosmic.pdf`,
+    name: "Chicago",
+    format: "chicago",
+    citation: `Kefelegn, Samuel Kefelegn, and Petresia Council / S.R.E Global. 2025. *Petresia Whitepaper v1.0 – Freeing AI from Corporate Monopolies.* September. S.R.E LLC – Scientific Revolution Earth. Zenodo. https://doi.org/10.5281/zenodo.17158024`,
   },
   {
     name: "BibTeX",
     format: "bibtex",
-    citation: `@misc{Petresia2025Cosmic,
-  title        = {Freeing AI from Corporate Monopolies: The Petresia Protocol for Decentralized, Verifiable, and Human-Centered Intelligence},
-  author       = {{Petresia Council} and {S.R.E Global}},
+    citation: `@techreport{petresia2025,
+  author       = {Samuel Kefelegn Kemachew and Petresia Council / S.R.E Global},
+  title        = {Petresia Whitepaper v1.0 – Freeing AI from Corporate Monopolies},
+  institution  = {S.R.E LLC – Scientific Revolution Earth},
   year         = {2025},
-  month        = sep,
-  version      = {1.0},
-  note         = {Cosmic Intelligence Extension},
-  url          = {https://www.petresia.com/Petresia_Whitepaper_v1.0_Cosmic.pdf},
-  urldate      = {2025-09-17},
-  institution  = {Petresia Council / S.R.E Global},
-  keywords     = {Decentralized AI, Verifiable Compute, Ethical AI Governance, Planetary Supercomputer, Esperanza Charter}
+  month        = {September},
+  doi          = {10.5281/zenodo.17158024},
+  url          = {https://doi.org/10.5281/zenodo.17158024}
 }`,
   },
 ];
+
 
 export function ResourcesSection() {
   const [copiedFormat, setCopiedFormat] = useState<string | null>(null);
@@ -343,7 +341,7 @@ export function ResourcesSection() {
             transition={{ delay: 0.6, duration: 0.8 }}
           >
             <a
-              href="https://www.petresia.com/Petresia_Whitepaper_v1.0_Cosmic.bib"
+              href="/Petresia_Whitepaper_v1.0_Cosmic.bib"
               download="Petresia_Whitepaper_v1.0_Cosmic.bib"
               target="_blank"
               rel="noopener noreferrer"

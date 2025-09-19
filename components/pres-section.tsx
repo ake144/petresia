@@ -12,7 +12,7 @@ const pressItems = [
     publication: "Media",
     excerpt:
       "Color, typography, and usage rules.",
-      url:"https://www.petresia.com/Petresia_Brand_Strategy_v1.0.pdf",
+      url:"/Petresia_Brand_Strategy_v1.0.pdf",
     featured: false,
     category: "Launch",
     type: "hero", // Added card type for different layouts
@@ -20,7 +20,7 @@ const pressItems = [
   {
     title: "Press Kit (ZIP)",
     publication: "Bundle with logo and guidelines.",
-    url:"https://www.petresia.com/press-kit.zip",
+    url:"/press-kit.zip",
     excerpt: "",
     category: "Interview",
     featured: true,
@@ -29,7 +29,7 @@ const pressItems = [
   {
     title: "Logos",
     publication: "Wired",
-    url:"https://www.petresia.com/logo.png",
+    url:"/logo.png",
     excerpt:
       "Download the logo as PNG.",
     category: "Feature",
