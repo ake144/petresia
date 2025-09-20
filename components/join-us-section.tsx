@@ -231,11 +231,11 @@ export function JoinUsSection() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="bg-green-500 hover:bg-green-600 text-black flex-1 group"
+                    className="bg-green-500 cursor-pointer hover:bg-green-600 text-black flex-1 group"
                     disabled={!agreement}
                   >
                     <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-                    Submit
+                    {loading ? "Submitting..." : "Submit"}
                   </Button>
 
                   <Button
@@ -243,7 +243,7 @@ export function JoinUsSection() {
                     variant="outline"
                     size="lg"
                     onClick={scrollToTop}
-                    className="border-white/20 text-white/80 hover:bg-white/10 bg-transparent"
+                    className="border-white/20 cursor-pointer text-white/80 hover:bg-white/10 bg-transparent"
                   >
                     <ArrowUp className="w-5 h-5 mr-2" />
                     Back to top

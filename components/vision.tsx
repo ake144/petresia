@@ -174,7 +174,7 @@ export function MissionPage() {
                   {/* Enhanced Stat Badge */}
                   <motion.div
                     className={`
-                      absolute top-6 right-6 lg:right-8 bg-gradient-to-r ${feature.color}
+                      absolute top-6  md:right-6 lg:right-8 bg-gradient-to-r ${feature.color}
                       text-white/90 text-lg lg:text-xl font-bold px-6 py-3 rounded-full lg:rounded-2xl
                       shadow-2xl shadow-black/50
                       backdrop-blur-sm border border-white/[0.1]
