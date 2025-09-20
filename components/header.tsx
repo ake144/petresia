@@ -102,6 +102,7 @@ export function Navigation() {
     className="relative"
   >
     {/* Main Logo Container */}
+   
    <div 
   className={`  `}
 >
@@ -109,6 +110,7 @@ export function Navigation() {
   <motion.div
     className="relative z-10"
   >
+     <Link href="/" aria-label="Petresia Home">
     <Image
       src="/logo.png"
       alt="Petresia Logo"
@@ -119,6 +121,7 @@ export function Navigation() {
       `}
       priority
     />
+    </Link>
   </motion.div>
 
   {/* Enhanced Floating Particles */}
@@ -222,9 +225,12 @@ export function Navigation() {
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.5, delay: 0.2, ease: [0.23, 0.86, 0.39, 0.96] }}
   >
-    PETRESIA
+    <Link href="/" aria-label="Petresia Home">
+      PETRESIA
+    </Link>
   </motion.span>
 </div>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
